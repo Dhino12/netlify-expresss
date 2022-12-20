@@ -15,9 +15,7 @@ router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
 router.post('/', (req, res) => res.json({ postBody: req.body }));
 
 router.get('/view', (req, res) => {
-  res.sendFile('views/index.html', {
-      root: __dirname
-  })
+  res.sendFile(path.join(__dirname, 'views/index.html'))
 })
 
 app.use(bodyParser.json());
