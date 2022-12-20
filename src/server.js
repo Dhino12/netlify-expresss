@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
 router.post('/', (req, res) => res.json({ postBody: req.body }));
 
-app.get('/view', (req, res) => {
+router.get('/view', (req, res) => {
   res.sendFile('./views/index.html', {
       root: __dirname
   })
