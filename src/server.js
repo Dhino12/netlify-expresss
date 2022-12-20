@@ -16,12 +16,12 @@ router.post('/', (req, res) => res.json({ postBody: req.body }));
 
 router.get('/view', (req, res) => {
   console.log(__dirname);
-  res.sendFile(path.join(__dirname, '../index_temp.html'))
+  res.sendFile(path.join(__dirname, './index.html'))
 })
 
 app.use(bodyParser.json());
 app.use('/.netlify/functions/server', router);  // path must route to lambda
-app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index_temp.html')));
+app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
 
 module.exports = app;
 module.exports.handler = serverless(app);
